@@ -23,6 +23,31 @@ int parse(char userinput[], char **argv)
             if(numargs > 0) numargs--;
             break;
         }   
+		char *copy = argv[numargs];
+		int length = strlen(argv[numargs]);
+		if(copy[0] == '#')
+		{
+			argv[numargs] = NULL;
+			if(numargs > 0) numargs--;
+			break;
+		}
+		if(copy[length-1] == '#')
+		{
+			copy[length-1] = '\0';
+			break;
+		}
+		bool shouldbreak=false;
+		for(int i=0; i<length; i++) //if there's a comment in the middle
+		{
+			if(copy[i] == '#')
+			{
+				copy[i] = '\0';
+				argv[numargs] =copy;
+				shouldbreak=true;
+			}
+		}
+		if(shouldbreak) break;
+
         numargs++;
         argv[numargs] = strtok(NULL, " \t\n");
     }
@@ -96,8 +121,7 @@ int main()
     while(1)
     {
        //prompt
-//       cout<<username<<"@"<<hostname<<" $ ";
-cout<<"$ ";
+       cout<<username<<"@"<<hostname<<"$ ";
         //grab user input
         char input[1024];
         cin.getline(input, 1024);
