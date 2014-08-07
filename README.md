@@ -15,7 +15,8 @@ LIST OF BUGS:
 
 -the command 'echo' works, but it works differently than it should. Usually if you were to input 'echo "you"' then on the next line 'you' would be output however in this program "you", with the quotes, is output. Also it will output everything after echo, regardless of quotes and spaces.
 
--There is a limitation for user input, the max user input is 1024 letters, if they enter more the program outputs randomly and you must exit manually. The program also has a limitation of the number of arguments, there is only room enough for the user to input 50 arguments. 
+-There is a limitation for user input, the max user input is 1024 characters, if they enter more the program outputs randomly and you must exit manually. The program also has a limitation of the number of arguments, there is only room enough for the user to input 50 arguments. 
+There is also a limitation of 100 characters for username and hostname.
 
 -The program will only find '&' if it is the last input command or if the last input word ends with '&' (ex. 'ls&') 
 
