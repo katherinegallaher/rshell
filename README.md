@@ -26,5 +26,7 @@ LIST OF BUGS:
 
 -When a process is run in the background of a regular shell on the line directly below the command it will put something like '[1] 11330' to show that its in the backgound. With my shell this line does not come up when something runs in the background
 
+-There was an instance of the getlogin_r function not working, the error was "no such process"
+
 
 hw1 for cs100
