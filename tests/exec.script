@@ -1,0 +1,76 @@
+Script started on Wed 06 Aug 2014 08:05:57 PM PDT
+~
+kgall005@well $ cd cs100/rshell//[Krshell
+~/cs100/rshell/rshell
+kgall005@well $ bin/rshell
+kgall005@well$ 
+kgall005@well$ #a (above no input is tests ed) on  testing only comment input
+kgall005@well$ ls#testing one command and comen  ment in the middle of a word
+bin  exec.script  LICENSE  Makefile  README.md	src  tests
+kgall005@well$ ls -a# testing two commands and comment at the end of a command
+.  ..  bin  exec.script  .git  LICENSE	Makefile  README.md  src  tests
+kgall005@well$ ls -l -a # testing three commands and a comment by itself
+total 36
+drwx------ 6 kgall005 csmajs 4096 Aug  6 20:05 .
+drwx------ 4 kgall005 csmajs 4096 Aug  6 13:59 ..
+drwx------ 2 kgall005 csmajs 4096 Aug  6 20:05 bin
+-rw------- 1 kgall005 csmajs    0 Aug  6 20:05 exec.script
+drwx------ 8 kgall005 csmajs 4096 Aug  6 19:24 .git
+-rw------- 1 kgall005 csmajs 1494 Aug  4 23:53 LICENSE
+-rw------- 1 kgall005 csmajs  117 Aug  6 19:25 Makefile
+-rw------- 1 kgall005 csmajs 1852 Aug  6 20:02 README.md
+drwx------ 2 kgall005 csmajs 4096 Aug  6 20:05 src
+drwx------ 2 kgall005 csmajs 4096 Aug  6 12:36 tests
+kgall005@well$ echo "this is a sentence" #testing a echo
+"this is a sentence"
+kgall005@well$ 
+kgall005@well$ mkdir folder #testing making a folder it should now be in this directly  ory
+kgall005@well$ ls #checking for folder      the new folder named folder
+bin  exec.script  folder  LICENSE  Makefile  README.md	src  tests
+kgall005@well$ cat wrong.txt # trying to use cat witha  fil       a file that doens't       esn't exist
+cat: wrong.txt: No such file or directory
+kgall005@well$ cat #*(@#$      #@(   !*#@%   @^% #testing cat with weird letter      symbols
+cat: !*@^%: No such file or directory
+kgall005@well$ ls 			-a  l #testing ls with tabs inbetween commands                       many spaces and tabs between commands
+total 40
+drwx------ 7 kgall005 csmajs 4096 Aug  6 20:08 .
+drwx------ 4 kgall005 csmajs 4096 Aug  6 13:59 ..
+drwx------ 2 kgall005 csmajs 4096 Aug  6 20:05 bin
+-rw------- 1 kgall005 csmajs    0 Aug  6 20:05 exec.script
+drwx------ 2 kgall005 csmajs 4096 Aug  6 20:08 folder
+drwx------ 8 kgall005 csmajs 4096 Aug  6 19:24 .git
+-rw------- 1 kgall005 csmajs 1494 Aug  4 23:53 LICENSE
+-rw------- 1 kgall005 csmajs  117 Aug  6 19:25 Makefile
+-rw------- 1 kgall005 csmajs 1852 Aug  6 20:02 README.md
+drwx------ 2 kgall005 csmajs 4096 Aug  6 20:05 src
+drwx------ 2 kgall005 csmajs 4096 Aug  6 12:36 tests
+kgall005@well$ geany & #    & #u  geany should run in the background and not create a file called &
+kgall005@well$ ls    ps
+  PID TTY          TIME CMD
+11519 pts/7    00:00:00 bash
+11523 pts/7    00:00:00 rshell
+11709 pts/7    00:00:00 geany
+11710 pts/7    00:00:00 gnome-pty-helpe
+11712 pts/7    00:00:00 ps
+kgall005@well$ ls #geany is running in the background and there i                                              there       making sure there's                      #making sure there's no file called & now
+bin  exec.script  folder  LICENSE  Makefile  README.md	src  tests
+kgall005@well$ geany new.txt& #geany should run in the background and create a file called new.txt
+kgall005@well$ ps #geany should still be                       testing that geany is running in ght eba       the background
+kgall005@well$   PID TTY          TIME CMD
+11519 pts/7    00:00:00 bash
+11523 pts/7    00:00:00 rshell
+11721 pts/7    00:00:00 geany
+11722 pts/7    00:00:00 gnome-pty-helpe
+11735 pts/7    00:00:00 ps
+
+kgall005@well$ ls #checking that the new file t              new.txt was made
+kgall005@well$ bin  exec.script  folder  LICENSE  Makefile  new.txt  README.md  src  tests
+cat new.txt #output th  the new file that                 what's in the     new.txt
+kgall005@well$ this is a new textfile from geany
+
+kgall005@well$ exit
+~/cs100/rshell/rshell
+kgall005@well $ exit
+exit
+
+Script done on Wed 06 Aug 2014 08:14:23 PM PDT

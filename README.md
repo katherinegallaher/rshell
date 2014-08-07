@@ -19,5 +19,12 @@ LIST OF BUGS:
 
 -The program will only find '&' if it is the last input command or if the last input word ends with '&' (ex. 'ls&') 
 
+-If you input a '&' with a comment directly after it, the program does not recognize it. For example if you were to run 'geany &#comments' there would be an error. But if you run 'geany&#comments' it works.
+
+-Sometimes when you run a program in the background the prompt messes up. For example if I run 
+'geany &' it will run correctly in the background however the prompt will be on the wrong like, if I were to put 'ls' as the next command it might show the prompt and then the files directly after it and the prompt will be off for the rest of the session
+
+-When a process is run in the background of a regular shell on the line directly below the command it will put something like '[1] 11330' to show that its in the backgound. With my shell this line does not come up when something runs in the background
+
 
 hw1 for cs100

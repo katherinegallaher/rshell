@@ -130,11 +130,9 @@ int main()
         if(!strcmp(input,"")) emptyinput = true;
         
         int i = parse(input, argv, emptyinput);//parse input
-cerr<<"num of args is: "<<i<<" and the current arg is: "<<argv[i]<<endl;
         //check for background processes
         bool backgroundproc = false;
         backgroundproc = background(i, argv, emptyinput);
-        
         //execute the command
         execute(argv, backgroundproc);
         delete[] argv;
