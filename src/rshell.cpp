@@ -11,24 +11,18 @@
 
 using namespace std; 
 
-int parse(char userinput[], char **argv)
+int parse(char userinput[], char **argv, bool &emptyinput)
 {
     int numargs=0;
     argv[numargs] = strtok(userinput," \t\n");
     while(argv[numargs] != NULL)
     {
-        if(!strcmp(argv[numargs],"#"))//if there's a comment stop parsing and delete it from the command list
-        {
-            argv[numargs] = NULL;
-            if(numargs > 0) numargs--;
-            break;
-        }   
 		char *copy = argv[numargs];
 		int length = strlen(argv[numargs]);
 		if(copy[0] == '#')
 		{
 			argv[numargs] = NULL;
-			if(numargs > 0) numargs--;
+			if(!numargs) emptyinput=true;
 			break;
 		}
 		if(copy[length-1] == '#')
@@ -92,7 +86,6 @@ void execute(char **argv, bool backgroundproc)
         }
         exit(1);
     }
-        
     if(!backgroundproc) wait(0);
 }
 
@@ -117,7 +110,6 @@ int main()
         }
     } 
     
-    
     while(1)
     {
        //prompt
@@ -137,8 +129,8 @@ int main()
         bool emptyinput = false;
         if(!strcmp(input,"")) emptyinput = true;
         
-        int i = parse(input, argv);//parse input
-
+        int i = parse(input, argv, emptyinput);//parse input
+cerr<<"num of args is: "<<i<<" and the current arg is: "<<argv[i]<<endl;
         //check for background processes
         bool backgroundproc = false;
         backgroundproc = background(i, argv, emptyinput);
