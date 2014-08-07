@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <string.h> //strtok
 
+
 using namespace std; 
 
 int parse(char userinput[], char **argv, bool &emptyinput)
