@@ -12,7 +12,7 @@ using namespace std;
 void permissions(struct stat);//print permissions,used in printallinfo
 void printallinfo(struct stat, int, int,dirent*);//print all info, for -l
 void myreaddir(char *, int);//where all the output happens depending on flags
-void maxnumdigs(char*,int &, int&);//used to align for -l
+void maxnumdigs(char*,int &, int&,int&, int);//used to align for -l
 void outputcolors(dirent*,struct stat);
 int GetBit(int x, int k)
 {
@@ -69,67 +69,69 @@ int main(int argc, char* argv[])
 	}
 	if(filenum == 1) filenum++;
 	bool pastfile=false;
-for(int i=1;i<filenum;i++)
-{
-	//check if the dirname is a file, if it is just output contents, then endl
-	//if it's a folder then just do readdir
-	bool isfile= false;
-	DIR *dirp;
-	if(!(dirp = opendir(".")))
-		perror("error with main opendir. ");
-	dirent *direntp;
-	struct stat s;
-	int num1=0;
-	int num2=0;
-	char newdirName[250];
-
-	if(GetBit(flags,1)) //if -l
-		maxnumdigs(".",num1,num2);
-	while((direntp = readdir(dirp)))
+	for(int i=1;i<filenum;i++)
 	{
-		char newpath[1024];
-		strcpy(newpath,".");
-		strcat(newpath,"/");
-		strcat(newpath,direntp->d_name);
-
-		if(-1 ==stat(newpath,&s))//reads in about the current file
-			perror("There is an error with main stat. ");
-		
-		if(i==1)
-			strcpy(newdirName,dirName);
-		else if(i==2)
-			strcpy(newdirName,dirName2);
-		else if(i==3)
-			strcpy(newdirName,dirName3);
-					
-		if(!strcmp(newdirName,direntp->d_name))
+		//check if the dirname is a file, if it is just output contents, then endl
+		//if it's a folder then just do readdir
+		bool isfile= false;
+		DIR *dirp;
+		if(!(dirp = opendir(".")))
+			perror("error with main opendir. ");
+		dirent *direntp;
+		struct stat s;
+		int num1=0;
+		int num2=0;
+		char newdirName[250];
+	
+		int blocks = 0;
+		if(GetBit(flags,1)) //if -l
+			maxnumdigs(".",num1,num2,blocks,flags);
+		while((direntp = readdir(dirp))) 
 		{
-			if(s.st_mode & S_IFREG)
-			{
-				isfile = true;
-				pastfile=true;
-				break;
-			}
-		}
-	}
-	closedir(dirp);
-	if(isfile)
-	{
-		if(!GetBit(flags,1))
-			outputcolors(direntp,s);
-		else
-			printallinfo(s,num1,num2,direntp);
-	}
-	else
-	{
-		if(pastfile) cout<<endl<<endl;
-		if(pastfile) cout<<newdirName<<":"<<endl;
-		myreaddir(newdirName,flags);
-	}
+			if(errno != 0)
+				perror("Error with main readdir. ");
+			char newpath[1024];
+			strcpy(newpath,".");
+			strcat(newpath,"/");
+			strcat(newpath,direntp->d_name);
 
-//	if(!GetBit(flags,1) && isfile) cout<<endl;
-	//end check	
-}
+			if(-1 ==stat(newpath,&s))//reads in about the current file
+				perror("There is an error with main stat. ");
+		
+			if(i==1)
+				strcpy(newdirName,dirName);
+			else if(i==2)
+				strcpy(newdirName,dirName2);
+			else if(i==3)
+				strcpy(newdirName,dirName3);
+					
+			if(!strcmp(newdirName,direntp->d_name))
+			{
+				if(s.st_mode & S_IFREG)
+				{
+					isfile = true;
+					pastfile=true;
+					break;
+				}
+			}
+		}	
+		if(-1 == closedir(dirp))
+			perror("There is an error with main closedir. ");
+		if(isfile)
+		{
+			if(!GetBit(flags,1))
+				outputcolors(direntp,s);
+			else
+				printallinfo(s,num1,num2,direntp);
+		}
+		else
+		{
+			if(pastfile) cout<<endl<<endl;
+			if(pastfile) cout<<newdirName<<":"<<endl;
+			myreaddir(newdirName,flags);
+		}
+		//end check	
+	}
 	cout<<endl;
 }
 
@@ -164,8 +166,9 @@ void myreaddir(char* dirName, int flags)
 //skip if you're not doing -l
 	int maxdigsize=0;
 	int maxdignlink=0;
+	int blocks=0;
 	if(GetBit(flags,1)) //if -l
-		maxnumdigs(dirName,maxdigsize,maxdignlink);
+		maxnumdigs(dirName,maxdigsize,maxdignlink,blocks,flags);
 
 	DIR *dirp2;
 
@@ -175,8 +178,12 @@ void myreaddir(char* dirName, int flags)
 		perror("error with opendir2. ");
 
 	dirent *direntp;
-	while((direntp = readdir(dirp2)))
+
+	if(GetBit(flags,1)) cout<<"Total: "<<(blocks/2)<<endl;
+	while((direntp = readdir(dirp2)))//add perror
 	{
+		if(errno != 0)
+			perror("Error with myreaddir readdir. ");
 		struct stat s;
 		char newpath[1024];
 		strcpy(newpath,dirName);
@@ -263,9 +270,10 @@ void myreaddir(char* dirName, int flags)
 
 	}
 	//if(!GetBit(flags,1)) cout<<endl;
-	closedir(dirp2);
+	if(-1 ==closedir(dirp2))
+		perror("Problem with closedir. ");
 }
-void maxnumdigs(char* dirName,int &maxdigsize,int &maxdignlink)
+void maxnumdigs(char* dirName,int &maxdigsize,int &maxdignlink, int &blocks, int flags)
 {	
 		DIR *dirp;
 		if(!(dirp = opendir(dirName)))
@@ -274,6 +282,8 @@ void maxnumdigs(char* dirName,int &maxdigsize,int &maxdignlink)
 		dirent *finddiglength;
 		while((finddiglength = readdir(dirp)))
 		{
+			if(errno != 0)
+				perror("Error with maxnumdigs readdir. ");
 			struct stat dig;
 	
 			char newpath[1024];
@@ -283,6 +293,15 @@ void maxnumdigs(char* dirName,int &maxdigsize,int &maxdignlink)
 
 			if(-1 == stat(newpath,&dig))
 				perror("There is an error with 1st stat. ");
+
+			if(GetBit(flags,0))
+				blocks += dig.st_blocks;
+			else
+			{
+				if(finddiglength->d_name[0] != '.')
+					blocks += dig.st_blocks;
+			}
+
 			int length1 = 1;
 			int length2 = 1;
 			int currentdig1 = dig.st_size;

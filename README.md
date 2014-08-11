@@ -19,7 +19,6 @@ LIST OF BUGS:
 -Rshell:the command 'echo' works, but it works differently than it should. Usually if you were to input 'echo "you"' then on the next line 'you' would be output however in this program "you", with the quotes, is output. Also it will output everything after echo, regardless of quotes and spaces.
 
 -Rshell:There is a limitation for user input, the max user input is 1024 characters, if they enter more the program outputs randomly and you must exit manually. The program also has a limitation of the number of arguments, there is only room enough for the user to input 50 arguments. 
-There is also a limitation of 100 characters for username and hostname.
 
 -Rshell:The program will only find '&' if it is the last input command or if the last input word ends with '&' (ex. 'ls&') 
 
@@ -35,7 +34,7 @@ There is also a limitation of 100 characters for username and hostname.
 
 -ls:if you enter a folder and end the input with '/' it will not recognize the folder, however it will recognize it otherwise.
 
--ls:If any command with -R is called and there is more than two folders to output information from the output comes out slightly wrong, if there is a two files in a row it will output all of the information from the current directory then when it finds a file it immediately outputs the information from it and outputs the next file that would be output right after it. 
+-ls:Commands with -R do not work exactly as they are supposed to if the program encounters a folder parameter it will immediately output everything in that folder and then go back to outputting everything in the outter folder. However, the output format is correct for -R.
 
 -ls:The program only supports up to three file or folder parameters
 
