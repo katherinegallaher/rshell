@@ -95,6 +95,9 @@ int main()
     //first get the username and hostname for the prompt
     char username[100] = {0};
     char hostname[100] = {0};
+
+//	username = getlogin();
+//	if(!username)
     if(getlogin_r(username,sizeof(username)-1))
     {
         perror("There was an error in getlogin_r. ");
