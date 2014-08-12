@@ -32,7 +32,7 @@ LIST OF BUGS:
 -There was an instance of the getlogin_r function not working, the error was "no such process"
 
 
--ls:When outputting -l for files that are not in the current directory sometimes the filename does not output correctly.
+-ls:When doing a -l command for many files and folders sometimes the names of the files not in the folders output incorrectly.
 
 ls:If you use -l with different files from different folders the file size numbers do not output aligned.
 
@@ -41,7 +41,5 @@ ls:When doing the ls command on a file and a folder, if the folder is the first 
 -ls:If you enter a folder and end the input with '/' it will not recognize the folder, however it will recognize it otherwise.
 
 -ls:Commands with -R do not work exactly as they are supposed to if the program encounters a folder parameter it will immediately output everything in that folder and then go back to outputting everything in the outter folder. However, the output format is correct for -R.
-
--ls:The program only supports up to three file or folder parameters
 
 hw1 & hw2 for cs100

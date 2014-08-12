@@ -6,6 +6,7 @@
 #include <errno.h>
 #include <pwd.h>
 #include <grp.h>
+#include <vector>
 #include <cstdlib>
 #include <iostream>
 #include<iomanip>
@@ -15,7 +16,6 @@ void permissions(struct stat);//print permissions,used in printallinfo
 void printallinfo(struct stat, int, int,dirent*,int outside=0, char*outsidedir=NULL);//print all info, for -l
 void myreaddir(char *, int);//where all the output happens depending on flags
 void maxnumdigs(char*,int &, int&,int&, int);//used to align for -l
-//void outputcolors(dirent*,struct stat);
 void outputcolors(dirent*, struct stat, int outside =0, char* outsidedir=NULL);
 int GetBit(int x, int k)
 {
@@ -24,11 +24,9 @@ int GetBit(int x, int k)
 
 int main(int argc, char* argv[])
 {
-	char dirName[250];
-	char dirName2[250];
-	char dirName3[250];
+	vector<string> dirNames;//added
 	int filenum=1;
-	strcpy(dirName, ".");
+	dirNames.push_back(".");//added
 	int flags=0;//will be set to see what flags are input
 	//bit 0 = a
 	//bit 1 = l
@@ -53,142 +51,133 @@ int main(int argc, char* argv[])
 		else if(!strcmp(argv[i],"-Rla")) flags = flags | 0x07;
 		else
 		{//its a filename/folder
-			if(filenum==1)
+			if(filenum == 1)
 			{
-				strcpy(dirName,argv[i]);
+				string dirName = argv[i];
+				dirNames[0] = dirName;
 				filenum++;
 			}
-			else if(filenum==2)
-			{
-				strcpy(dirName2,argv[i]);
-				filenum++;
-			}
-			else if(filenum==3)
-			{
-				strcpy(dirName3,argv[i]);
-				filenum++;
-			}
+			else
+				dirNames.push_back(argv[i]);
 		}
 	}
-
-	if(filenum == 1 && dirName[0] !='.')
-		 filenum++;
-	else if(filenum == 1)
-		myreaddir(dirName,flags);
-
+	
 	bool pastfile=false;
-	//bool notfound = true;
 	bool somewhereelse = false;	
 	char* outsidefilen;
 	outsidefilen = new char[512];
 	char* outsidedir;
 	outsidedir = new char[512];
+	 
+	int size = dirNames.size();
+	if(filenum ==1)
+		myreaddir(".",flags);
 
-	for(int i=1;i<filenum;i++)
+	else
 	{
-		bool notfound=true;
-	START:
-		//check if the dirname is a file, if it is just output contents, then endl
-		//if it's a folder then just do readdir
-		bool isfile= false;
-		DIR *dirp;
-		if(!somewhereelse)
+		for(int i=0;i<size;i++)
 		{
-			if(!(dirp = opendir("."))) 
-				perror("error with main opendir. "); 
-		} 
-		else
-		{
-			if(!(dirp = opendir(outsidedir)))
-			perror("error with main opendir. ");
-		}
-		dirent *direntp;
-		struct stat s;
-		int num1=0;
-		int num2=0;
-		char newdirName[250];
-		while((direntp = readdir(dirp))) 
-		{
-			if(errno != 0)
-				perror("Error with main readdir. ");
-			char newpath[1024];
+			bool notfound=true;
+START:
+			//check if the dirname is a file, if it is just output contents, then endl
+			//if it's a folder then just do readdir
+			bool isfile= false;
+			DIR *dirp;
 			if(!somewhereelse)
 			{
-				strcpy(newpath,".");
-				strcat(newpath,"/");
-			}
+				if(!(dirp = opendir("."))) 
+					perror("error with main opendir. "); 
+			} 
 			else
 			{
-				strcpy(newpath,outsidedir);
-				strcat(newpath,"/");
+				if(!(dirp = opendir(outsidedir)))
+				perror("error with main opendir. ");
 			}
-			strcat(newpath,direntp->d_name);
-
-			if(-1 ==stat(newpath,&s))//reads in about the current file
-				perror("There is an error with main stat. ");
-		
-			if(i==1)
-				strcpy(newdirName,dirName);
-			else if(i==2)
-				strcpy(newdirName,dirName2);
-			else if(i==3)
-				strcpy(newdirName,dirName3);
-			if(somewhereelse)
-				strcpy(newdirName,outsidefilen);
-			if(!strcmp(newdirName,direntp->d_name))
+			dirent *direntp;
+			struct stat s;
+			int num1=0;
+			int num2=0;
+			char newdirName[250];
+			while((direntp = readdir(dirp))) 
 			{
-				notfound = false;
-				if(s.st_mode & S_IFREG)
+				if(errno != 0)
+					perror("Error with main readdir. ");
+				char newpath[1024];
+				if(!somewhereelse)
 				{
-					isfile = true;
-					pastfile=true;
-					break;
+					strcpy(newpath,".");
+					strcat(newpath,"/");
 				}
-			}
-		}	
-		if(-1 == closedir(dirp))
-			perror("There is an error with main closedir. ");
-
-		char* finddot;
-		if(notfound)
-			finddot = strchr(newdirName,'.');
-		if(finddot && notfound)//it's a file that isn't in the current directory	
-		{
-			isfile = true;
-			somewhereelse = true;
-			string newstring = newdirName;
-			string thefilename = newstring.substr(newstring.rfind("/"));
-			thefilename.erase(0,1);//now thefilename is the filename
-			newstring = newstring.substr(0,newstring.size() - thefilename.size() - 1);
-			outsidefilen = strcpy(outsidefilen,thefilename.c_str());
-			outsidedir = strcpy(outsidedir,newstring.c_str());
-			goto START;
-		}
-
-		if(isfile && !notfound)
-		{
-			if(somewhereelse) 
-			{
-				somewhereelse = false;
-				if(!GetBit(flags,1))
-					outputcolors(direntp,s,1,outsidedir);
 				else
-					printallinfo(s,num1,num2,direntp,1,outsidedir);//doesn't work right
+				{
+					strcpy(newpath,outsidedir);
+					strcat(newpath,"/");
+				}
+				strcat(newpath,direntp->d_name);
+	
+				if(-1 ==stat(newpath,&s))//reads in about the current file
+					perror("There is an error with main stat. ");
+					
+				if(somewhereelse)
+					strcpy(newdirName,outsidefilen);
+				else
+					strcpy(newdirName,dirNames[i].c_str());
+	
+				if(!strcmp(newdirName,direntp->d_name))
+				{
+					notfound = false;
+					if(s.st_mode & S_IFREG)
+					{
+						isfile = true;
+						pastfile=true;
+						break;
+					}
+				}
+			}	
+			if(-1 == closedir(dirp))
+				perror("There is an error with main closedir. ");
+
+			char* finddot;
+			if(notfound)
+				finddot = strchr(newdirName,'.');
+			if(finddot && notfound)//it's a file that isn't in the current directory	
+			{
+				isfile = true;
+				somewhereelse = true;
+				string newstring = newdirName;
+				string thefilename = newstring.substr(newstring.rfind("/"));
+				thefilename.erase(0,1);//now thefilename is the filename
+				newstring = newstring.substr(0,newstring.size() - thefilename.size() - 1);
+				outsidefilen = strcpy(outsidefilen,thefilename.c_str());
+				outsidedir = strcpy(outsidedir,newstring.c_str());
+				goto START;
 			}
+	
+			if(isfile && !notfound)
+			{
+				if(somewhereelse) 
+				{
+					somewhereelse = false;
+					if(!GetBit(flags,1))
+						outputcolors(direntp,s,1,outsidedir);
+					else
+						printallinfo(s,num1,num2,direntp,1,outsidedir);//doesn't work right
+				}
+	
+				else if(!GetBit(flags,1))
+					outputcolors(direntp,s);
+				else
+					printallinfo(s,num1,num2,direntp);
 
-			else if(!GetBit(flags,1))
-				outputcolors(direntp,s);
-			else
-				printallinfo(s,num1,num2,direntp);
-
+			}
+			else 
+			{
+				if(pastfile) cout<<endl<<endl;
+				if(pastfile) cout<<newdirName<<":"<<endl;
+				myreaddir(newdirName,flags);
+			}
+			//end check	
 		}
-		else 
-		{
-			if(pastfile) cout<<endl<<endl;
-			if(pastfile) cout<<newdirName<<":"<<endl;
-			myreaddir(newdirName,flags);
-		}
-		//end check	
 	}
 	cout<<endl;
 	delete[] outsidefilen;
