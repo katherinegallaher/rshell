@@ -1,50 +1,50 @@
-Script started on Mon 11 Aug 2014 01:22:06 PM PDT
+Script started on Mon 11 Aug 2014 08:39:07 PM PDT
 ~
-kgall005@well $ cd cs100/rshell/rshell
+kgall005@well $ cd cs100/rse[Khell/rshell
 ~/cs100/rshell/rshell
-kgall005@well $ bin.[K/ls
+kgall005@well $ bin/ls
 LICENSE  README.md  Makefile  [38;5;32mbin[0;00m/  [38;5;32mtests[0;00m/  [38;5;32msrc[0;00m/  ls.script  
 ~/cs100/rshell/rshell
-kgall005@well $ bin/ls -l[Ka
+kgall005@well $ bin/ls -a
 [47m[38;5;32m.[0;00m/  [47m[38;5;32m..[0;00m/  [47m[38;5;32m.git[0;00m/  LICENSE  README.md  Makefile  [38;5;32mbin[0;00m/  [38;5;32mtests[0;00m/  [38;5;32msrc[0;00m/  ls.script  
 ~/cs100/rshell/rshell
 kgall005@well $ bin/ls -a[Kl
 Total: 24
 -rw------- 1 kgall005 csmajs 1494 Aug 04 23:53 LICENSE  
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
--rw------- 1 kgall005 csmajs  201 Aug 11 13:13 Makefile  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 13:15 [38;5;32mbin[0;00m/  
-drwx------ 2 kgall005 csmajs 4096 Aug 06 21:51 [38;5;32mtests[0;00m/  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 12:35 [38;5;32msrc[0;00m/  
--rw------- 1 kgall005 csmajs    0 Aug 11 13:22 ls.script  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
+-rw------- 1 kgall005 csmajs  201 Aug 11 13:48 Makefile  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:38 [38;5;32mbin[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:36 [38;5;32mtests[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:37 [38;5;32msrc[0;00m/  
+-rw------- 1 kgall005 csmajs    0 Aug 11 20:39 ls.script  
 
 ~/cs100/rshell/rshell
-kgall005@well $ bin/ls -l[Kla
+kgall005@well $ bin/ls -la
 Total: 36
-drwx------ 6 kgall005 csmajs 4096 Aug 11 13:22 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs 4096 Aug 11 20:39 [47m[38;5;32m.[0;00m/  
 drwx------ 4 kgall005 csmajs 4096 Aug 10 14:37 [47m[38;5;32m..[0;00m/  
-drwx------ 8 kgall005 csmajs 4096 Aug 10 19:52 [47m[38;5;32m.git[0;00m/  
+drwx------ 8 kgall005 csmajs 4096 Aug 11 20:35 [47m[38;5;32m.git[0;00m/  
 -rw------- 1 kgall005 csmajs 1494 Aug 04 23:53 LICENSE  
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
--rw------- 1 kgall005 csmajs  201 Aug 11 13:13 Makefile  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 13:15 [38;5;32mbin[0;00m/  
-drwx------ 2 kgall005 csmajs 4096 Aug 06 21:51 [38;5;32mtests[0;00m/  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 12:35 [38;5;32msrc[0;00m/  
--rw------- 1 kgall005 csmajs    0 Aug 11 13:22 ls.script  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
+-rw------- 1 kgall005 csmajs  201 Aug 11 13:48 Makefile  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:38 [38;5;32mbin[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:36 [38;5;32mtests[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:37 [38;5;32msrc[0;00m/  
+-rw------- 1 kgall005 csmajs    0 Aug 11 20:39 ls.script  
 
 ~/cs100/rshell/rshell
 kgall005@well $ bin/ls -la[K -a
 Total: 36
-drwx------ 6 kgall005 csmajs 4096 Aug 11 13:22 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs 4096 Aug 11 20:39 [47m[38;5;32m.[0;00m/  
 drwx------ 4 kgall005 csmajs 4096 Aug 10 14:37 [47m[38;5;32m..[0;00m/  
-drwx------ 8 kgall005 csmajs 4096 Aug 10 19:52 [47m[38;5;32m.git[0;00m/  
+drwx------ 8 kgall005 csmajs 4096 Aug 11 20:35 [47m[38;5;32m.git[0;00m/  
 -rw------- 1 kgall005 csmajs 1494 Aug 04 23:53 LICENSE  
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
--rw------- 1 kgall005 csmajs  201 Aug 11 13:13 Makefile  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 13:15 [38;5;32mbin[0;00m/  
-drwx------ 2 kgall005 csmajs 4096 Aug 06 21:51 [38;5;32mtests[0;00m/  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 12:35 [38;5;32msrc[0;00m/  
--rw------- 1 kgall005 csmajs    0 Aug 11 13:22 ls.script  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
+-rw------- 1 kgall005 csmajs  201 Aug 11 13:48 Makefile  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:38 [38;5;32mbin[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:36 [38;5;32mtests[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:37 [38;5;32msrc[0;00m/  
+-rw------- 1 kgall005 csmajs    0 Aug 11 20:39 ls.script  
 
 ~/cs100/rshell/rshell
 kgall005@well $ bin/ls -l -a[K[K[K[KR
@@ -64,71 +64,71 @@ kgall005@well $ bin/ls -Rl
 .:
 Total: 24
 -rw------- 1 kgall005 csmajs 1494 Aug 04 23:53 LICENSE  
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
--rw------- 1 kgall005 csmajs  201 Aug 11 13:13 Makefile  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 13:15 [38;5;32mbin[0;00m/  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
+-rw------- 1 kgall005 csmajs  201 Aug 11 13:48 Makefile  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:38 [38;5;32mbin[0;00m/  
 
 
 ./bin:
-Total: 32
--rwx------ 1 kgall005 csmajs 11440 Aug 11 13:15 [38;5;34mrshell[0;00m*  
--rwx------ 1 kgall005 csmajs 20008 Aug 11 13:15 [38;5;34mls[0;00m*  
-drwx------ 2 kgall005 csmajs 4096 Aug 06 21:51 [38;5;32mtests[0;00m/  
+Total: 36
+-rwx------ 1 kgall005 csmajs 11440 Aug 11 20:38 [38;5;34mrshell[0;00m*  
+-rwx------ 1 kgall005 csmajs 23361 Aug 11 20:38 [38;5;34mls[0;00m*  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:36 [38;5;32mtests[0;00m/  
 
 
 ./tests:
 Total: 8
 -rw------- 1 kgall005 csmajs 4399 Aug 06 20:21 exec.script  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 12:35 [38;5;32msrc[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:37 [38;5;32msrc[0;00m/  
 
 
 ./src:
 Total: 16
--rwx------ 1 kgall005 csmajs  3355 Aug 06 22:46 [38;5;34mrshell.cpp[0;00m*  
--rw------- 1 kgall005 csmajs  9281 Aug 11 12:35 ls.cpp  
--rw------- 1 kgall005 csmajs    0 Aug 11 13:22 ls.script  
+-rwx------ 1 kgall005 csmajs  3355 Aug 11 20:35 [38;5;34mrshell.cpp[0;00m*  
+-rw------- 1 kgall005 csmajs 11223 Aug 11 20:37 ls.cpp  
+-rw------- 1 kgall005 csmajs    0 Aug 11 20:39 ls.script  
 
 ~/cs100/rshell/rshell
-kgall005@well $ bin/ls -Rl[K[KalR
+kgall005@well $ bin/ls -Rla
 .:
 Total: 36
-drwx------ 6 kgall005 csmajs 4096 Aug 11 13:22 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs 4096 Aug 11 20:39 [47m[38;5;32m.[0;00m/  
 drwx------ 4 kgall005 csmajs 4096 Aug 10 14:37 [47m[38;5;32m..[0;00m/  
-drwx------ 8 kgall005 csmajs 4096 Aug 10 19:52 [47m[38;5;32m.git[0;00m/  
+drwx------ 8 kgall005 csmajs 4096 Aug 11 20:35 [47m[38;5;32m.git[0;00m/  
 -rw------- 1 kgall005 csmajs 1494 Aug 04 23:53 LICENSE  
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
--rw------- 1 kgall005 csmajs  201 Aug 11 13:13 Makefile  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 13:15 [38;5;32mbin[0;00m/  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
+-rw------- 1 kgall005 csmajs  201 Aug 11 13:48 Makefile  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:38 [38;5;32mbin[0;00m/  
 
 
 ./bin:
-Total: 40
-drwx------ 2 kgall005 csmajs  4096 Aug 11 13:15 [47m[38;5;32m.[0;00m/  
-drwx------ 6 kgall005 csmajs  4096 Aug 11 13:22 [47m[38;5;32m..[0;00m/  
--rwx------ 1 kgall005 csmajs 11440 Aug 11 13:15 [38;5;34mrshell[0;00m*  
--rwx------ 1 kgall005 csmajs 20008 Aug 11 13:15 [38;5;34mls[0;00m*  
-drwx------ 2 kgall005 csmajs 4096 Aug 06 21:51 [38;5;32mtests[0;00m/  
+Total: 44
+drwx------ 2 kgall005 csmajs  4096 Aug 11 20:38 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs  4096 Aug 11 20:39 [47m[38;5;32m..[0;00m/  
+-rwx------ 1 kgall005 csmajs 11440 Aug 11 20:38 [38;5;34mrshell[0;00m*  
+-rwx------ 1 kgall005 csmajs 23361 Aug 11 20:38 [38;5;34mls[0;00m*  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:36 [38;5;32mtests[0;00m/  
 
 
 ./tests:
 Total: 16
-drwx------ 2 kgall005 csmajs 4096 Aug 06 21:51 [47m[38;5;32m.[0;00m/  
-drwx------ 6 kgall005 csmajs 4096 Aug 11 13:22 [47m[38;5;32m..[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:36 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs 4096 Aug 11 20:39 [47m[38;5;32m..[0;00m/  
 -rw------- 1 kgall005 csmajs 4399 Aug 06 20:21 exec.script  
-drwx------ 2 kgall005 csmajs 4096 Aug 11 12:35 [38;5;32msrc[0;00m/  
+drwx------ 2 kgall005 csmajs 4096 Aug 11 20:37 [38;5;32msrc[0;00m/  
 
 
 ./src:
 Total: 36
-drwx------ 2 kgall005 csmajs  4096 Aug 11 12:35 [47m[38;5;32m.[0;00m/  
-drwx------ 6 kgall005 csmajs  4096 Aug 11 13:22 [47m[38;5;32m..[0;00m/  
--rwx------ 1 kgall005 csmajs  3355 Aug 06 22:46 [38;5;34mrshell.cpp[0;00m*  
--rw------- 1 kgall005 csmajs 12288 Aug 06 22:13 [47m.rshell.cpp.swp[0;00m  
--rw------- 1 kgall005 csmajs  9281 Aug 11 12:35 ls.cpp  
--rw------- 1 kgall005 csmajs    0 Aug 11 13:22 ls.script  
+drwx------ 2 kgall005 csmajs  4096 Aug 11 20:37 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs  4096 Aug 11 20:39 [47m[38;5;32m..[0;00m/  
+-rwx------ 1 kgall005 csmajs  3355 Aug 11 20:35 [38;5;34mrshell.cpp[0;00m*  
+-rw------- 1 kgall005 csmajs 12288 Aug 11 20:35 [47m.rshell.cpp.swp[0;00m  
+-rw------- 1 kgall005 csmajs 11223 Aug 11 20:37 ls.cpp  
+-rw------- 1 kgall005 csmajs    0 Aug 11 20:39 ls.script  
 
 ~/cs100/rshell/rshell
-kgall005@well $ bin/ls -alR[K[K[K[K[K ~/cs14
+kgall005@well $ bin/ls -Rla[K[K[K[K~/cs14
 [38;5;32mlab2[0;00m/  [38;5;32mlab1[0;00m/  [38;5;32mtrash[0;00m/  [38;5;32mAssn1[0;00m/  [38;5;32massn2[0;00m/  [38;5;32mquiz[0;00m/  
 ~/cs100/rshell/rshell
 kgall005@well $ bin/ls ~/cs14 -l
@@ -141,65 +141,85 @@ drwxr-xr-x  4 kgall005 csmajs  4096 Apr 22 09:39 [38;5;32massn2[0;00m/
 drwx------  3 kgall005 csmajs  4096 Jul 31 11:04 [38;5;32mquiz[0;00m/  
 
 ~/cs100/rshell/rshell
-kgall005@well $ bin/ls ~/cs14 -l[K[K[K[K[K[K[K[K[K[K[K[K[K[Kn/ls README.md
+kgall005@well $ bin/ls ~/cs14 -l[K[K[K/lab1/lab1.cpp ~/lab[K[K[Kcs14/lab1/a.out [K[K[K[K[K[K[K[K2
+[38;5;34m/home/csmajs/kgall005/cs14/lab1/[0;00m[38;5;34mlab1.cpp[0;00m*  
+
+/home/csmajs/kgall005/cs14/lab2:
+[38;5;34mlab2.cpp[0;00m*  
+~/cs100/rshell/rshell
+kgall005@well $ bin/ls ~/cs14/lab1/lab1.cpp ~/cs14/lab2 -la
+-rwxr-xr-x 1 kgall005 csmajs 1379 Apr 01 10:01 [38;5;34m/home/csmajs/kgall005/cs14/lab1/[0;00m[38;5;34mlab1.cpp[0;00m*  
+
+
+/home/csmajs/kgall005/cs14/lab2:
+Total: 12
+drwx------ 2 kgall005 csmajs 4096 Apr 08 08:17 [47m[38;5;32m.[0;00m/  
+drwx------ 8 kgall005 csmajs 4096 Jul 31 11:02 [47m[38;5;32m..[0;00m/  
+-rwx------ 1 kgall005 csmajs   75 Apr 08 08:17 [38;5;34mlab2.cpp[0;00m*  
+
+~/cs100/rshell/rshell
+kgall005@well $ bin/ls ~/cs14/lab1/lab1.cpp ~/cs14/lab2 -la[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KREADME.md
 README.md  
 ~/cs100/rshell/rshell
 kgall005@well $ bin/ls README.md -la
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
 
 ~/cs100/rshell/rshell
-kgall005@well $ chmod o +[K[K+rwx README.md
+kgall005@well $ chmod o+rwx README.md
 ~/cs100/rshell/rshell
 kgall005@well $ chmod o+rwx README.md[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pbin/ls README.md -la
--rw----rwx 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
+-rw----rwx 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
 
 ~/cs100/rshell/rshell
-kgall005@well $ chmod o-rwd[Kx README.md
+kgall005@well $ bin/ls README.md -la[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cchmod o+rwx README.md[1P[1@-
 ~/cs100/rshell/rshell
-kgall005@well $ chmod o-rwx README.md[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pbin/ls README.md -la
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 README.md  
+kgall005@well $ chmod o-rwx README.md[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pbin/ls README.md -la[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cchmod o+rwx README.md[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pbin/ls README.md -la
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35 README.md  
 
 ~/cs100/rshell/rshell
-kgall005@well $ ls LICENSE README.md src
-[0m[0mLICENSE[0m  [0mREADME.md[0m
+kgall005@well $ bin/ls README.md -la[K[K[K[K[K[K[K[K[K[K[K[K[KLICENSE README.md src
+LICENSE  README.md  
 
 src:
-[0mls.cpp[0m  [01;32mrshell.cpp[0m*
-[m~/cs100/rshell/rshell
-kgall005@well $ ls LICENSE README.md src -l
-[0m-rw------- 1 kgall005 csmajs 1494 Aug  4 23:53 [0mLICENSE[0m
--rw------- 1 kgall005 csmajs 3147 Aug 10 18:47 [0mREADME.md[0m
+[38;5;34mrshell.cpp[0;00m*  ls.cpp  
+~/cs100/rshell/rshell
+kgall005@well $ bin/ls LICENSE README.md src -l
+-rw------- 1 kgall005 csmajs 1494 Aug 04 23:53 LICENSE  
+-rw------- 1 kgall005 csmajs 2977 Aug 11 20:35   
+
 
 src:
-total 16
--rw------- 1 kgall005 csmajs 9281 Aug 11 12:35 [0mls.cpp[0m
--rwx------ 1 kgall005 csmajs 3355 Aug  6 22:46 [01;32mrshell.cpp[0m*
-[m~/cs100/rshell/rshell
-kgall005@well $ ls -la bin
-[0mtotal 40
-drwx------ 2 kgall005 csmajs  4096 Aug 11 13:15 [01;34m.[0m/
-drwx------ 6 kgall005 csmajs  4096 Aug 11 13:22 [01;34m..[0m/
--rwx------ 1 kgall005 csmajs 20008 Aug 11 13:15 [01;32mls[0m*
--rwx------ 1 kgall005 csmajs 11440 Aug 11 13:15 [01;32mrshell[0m*
-[m~/cs100/rshell/rshell
-kgall005@well $ valgrind --tool=meme[Kcheck bin/ls
-==8201== Memcheck, a memory error detector
-==8201== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
-==8201== Using Valgrind-3.5.0 and LibVEX; rerun with -h for copyright info
-==8201== Command: bin/ls
-==8201== 
+Total: 16
+-rwx------ 1 kgall005 csmajs  3355 Aug 11 20:35 [38;5;34mrshell.cpp[0;00m*  
+-rw------- 1 kgall005 csmajs 11223 Aug 11 20:37 ls.cpp  
+
+~/cs100/rshell/rshell
+kgall005@well $ bin/ls LICENSE README.md src -l[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K-la bin
+Total: 44
+drwx------ 2 kgall005 csmajs  4096 Aug 11 20:38 [47m[38;5;32m.[0;00m/  
+drwx------ 6 kgall005 csmajs  4096 Aug 11 20:39 [47m[38;5;32m..[0;00m/  
+-rwx------ 1 kgall005 csmajs 11440 Aug 11 20:38 [38;5;34mrshell[0;00m*  
+-rwx------ 1 kgall005 csmajs 23361 Aug 11 20:38 [38;5;34mls[0;00m*  
+
+~/cs100/rshell/rshell
+kgall005@well $ a[Kvalgrind --tool=memcheck bin/ls
+==6016== Memcheck, a memory error detector
+==6016== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
+==6016== Using Valgrind-3.5.0 and LibVEX; rerun with -h for copyright info
+==6016== Command: bin/ls
+==6016== 
 LICENSE  README.md  Makefile  [38;5;32mbin[0;00m/  [38;5;32mtests[0;00m/  [38;5;32msrc[0;00m/  ls.script  
-==8201== 
-==8201== HEAP SUMMARY:
-==8201==     in use at exit: 0 bytes in 0 blocks
-==8201==   total heap usage: 2 allocs, 2 frees, 65,648 bytes allocated
-==8201== 
-==8201== All heap blocks were freed -- no leaks are possible
-==8201== 
-==8201== For counts of detected and suppressed errors, rerun with: -v
-==8201== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 4 from 4)
+==6016== 
+==6016== HEAP SUMMARY:
+==6016==     in use at exit: 0 bytes in 0 blocks
+==6016==   total heap usage: 1 allocs, 1 frees, 32,824 bytes allocated
+==6016== 
+==6016== All heap blocks were freed -- no leaks are possible
+==6016== 
+==6016== For counts of detected and suppressed errors, rerun with: -v
+==6016== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 4 from 4)
 ~/cs100/rshell/rshell
 kgall005@well $ exit
 exit
 
-Script done on Mon 11 Aug 2014 01:27:28 PM PDT
+Script done on Mon 11 Aug 2014 08:48:05 PM PDT
