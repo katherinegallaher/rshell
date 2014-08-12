@@ -30,9 +30,13 @@ LIST OF BUGS:
 -Rshell:When a process is run in the background of a regular shell on the line directly below the command it will put something like '[1] 11330' to show that its in the backgound. With my shell this line does not come up when something runs in the background
 
 
--ls:the program does not support if you input a file parameter that is not in the current folder. 
+-ls:When outputting -l for files that are not in the current directory sometimes the filename does not output correctly.
 
--ls:if you enter a folder and end the input with '/' it will not recognize the folder, however it will recognize it otherwise.
+ls:If you use -l with different files from different folders the file size numbers do not output aligned.
+
+ls:When doing the ls command on a file and a folder, if the folder is the first file/folder parameter and the file the second, the output is not divided between the two sections. 
+
+-ls:If you enter a folder and end the input with '/' it will not recognize the folder, however it will recognize it otherwise.
 
 -ls:Commands with -R do not work exactly as they are supposed to if the program encounters a folder parameter it will immediately output everything in that folder and then go back to outputting everything in the outter folder. However, the output format is correct for -R.
 

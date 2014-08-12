@@ -1,5 +1,7 @@
+#include <string>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <string.h>
 #include <dirent.h>
 #include <errno.h>
 #include <pwd.h>
@@ -10,10 +12,11 @@
 using namespace std;
 
 void permissions(struct stat);//print permissions,used in printallinfo
-void printallinfo(struct stat, int, int,dirent*);//print all info, for -l
+void printallinfo(struct stat, int, int,dirent*,int outside=0, char*outsidedir=NULL);//print all info, for -l
 void myreaddir(char *, int);//where all the output happens depending on flags
 void maxnumdigs(char*,int &, int&,int&, int);//used to align for -l
-void outputcolors(dirent*,struct stat);
+//void outputcolors(dirent*,struct stat);
+void outputcolors(dirent*, struct stat, int outside =0, char* outsidedir=NULL);
 int GetBit(int x, int k)
 {
 	return ((x & (0x01 << k)) !=0);
@@ -67,32 +70,58 @@ int main(int argc, char* argv[])
 			}
 		}
 	}
-	if(filenum == 1) filenum++;
+
+	if(filenum == 1 && dirName[0] !='.')
+		 filenum++;
+	else if(filenum == 1)
+		myreaddir(dirName,flags);
+
 	bool pastfile=false;
+	//bool notfound = true;
+	bool somewhereelse = false;	
+	char* outsidefilen;
+	outsidefilen = new char[512];
+	char* outsidedir;
+	outsidedir = new char[512];
+
 	for(int i=1;i<filenum;i++)
 	{
+		bool notfound=true;
+	START:
 		//check if the dirname is a file, if it is just output contents, then endl
 		//if it's a folder then just do readdir
 		bool isfile= false;
 		DIR *dirp;
-		if(!(dirp = opendir(".")))
+		if(!somewhereelse)
+		{
+			if(!(dirp = opendir("."))) 
+				perror("error with main opendir. "); 
+		} 
+		else
+		{
+			if(!(dirp = opendir(outsidedir)))
 			perror("error with main opendir. ");
+		}
 		dirent *direntp;
 		struct stat s;
 		int num1=0;
 		int num2=0;
 		char newdirName[250];
-	
-		int blocks = 0;
-		if(GetBit(flags,1)) //if -l
-			maxnumdigs(".",num1,num2,blocks,flags);
 		while((direntp = readdir(dirp))) 
 		{
 			if(errno != 0)
 				perror("Error with main readdir. ");
 			char newpath[1024];
-			strcpy(newpath,".");
-			strcat(newpath,"/");
+			if(!somewhereelse)
+			{
+				strcpy(newpath,".");
+				strcat(newpath,"/");
+			}
+			else
+			{
+				strcpy(newpath,outsidedir);
+				strcat(newpath,"/");
+			}
 			strcat(newpath,direntp->d_name);
 
 			if(-1 ==stat(newpath,&s))//reads in about the current file
@@ -104,9 +133,11 @@ int main(int argc, char* argv[])
 				strcpy(newdirName,dirName2);
 			else if(i==3)
 				strcpy(newdirName,dirName3);
-					
+			if(somewhereelse)
+				strcpy(newdirName,outsidefilen);
 			if(!strcmp(newdirName,direntp->d_name))
 			{
+				notfound = false;
 				if(s.st_mode & S_IFREG)
 				{
 					isfile = true;
@@ -117,14 +148,41 @@ int main(int argc, char* argv[])
 		}	
 		if(-1 == closedir(dirp))
 			perror("There is an error with main closedir. ");
-		if(isfile)
+
+		char* finddot;
+		if(notfound)
+			finddot = strchr(newdirName,'.');
+		if(finddot && notfound)//it's a file that isn't in the current directory	
 		{
-			if(!GetBit(flags,1))
+			isfile = true;
+			somewhereelse = true;
+			string newstring = newdirName;
+			string thefilename = newstring.substr(newstring.rfind("/"));
+			thefilename.erase(0,1);//now thefilename is the filename
+			newstring = newstring.substr(0,newstring.size() - thefilename.size() - 1);
+			outsidefilen = strcpy(outsidefilen,thefilename.c_str());
+			outsidedir = strcpy(outsidedir,newstring.c_str());
+			goto START;
+		}
+
+		if(isfile && !notfound)
+		{
+			if(somewhereelse) 
+			{
+				somewhereelse = false;
+				if(!GetBit(flags,1))
+					outputcolors(direntp,s,1,outsidedir);
+				else
+					printallinfo(s,num1,num2,direntp,1,outsidedir);//doesn't work right
+			}
+
+			else if(!GetBit(flags,1))
 				outputcolors(direntp,s);
 			else
 				printallinfo(s,num1,num2,direntp);
+
 		}
-		else
+		else 
 		{
 			if(pastfile) cout<<endl<<endl;
 			if(pastfile) cout<<newdirName<<":"<<endl;
@@ -133,28 +191,46 @@ int main(int argc, char* argv[])
 		//end check	
 	}
 	cout<<endl;
+	delete[] outsidefilen;
+	delete[] outsidedir;
 }
 
 
-void outputcolors(dirent *direntp, struct stat s)
+void outputcolors(dirent *direntp, struct stat s, int outside, char* outsidedir)
 {
 	if(direntp->d_name[0] == '.' && (s.st_mode & S_IFDIR))//gray bkgrnd w/ bluewords
+	{
+		if(outside) cout<<"\033[47m\033[38;5;32m"<<outsidedir<<'/'<<"\033[0;00m";
 		cout<<"\033[47m\033[38;5;32m"<<direntp->d_name<<"\033[0;00m";
+	}
 
 	else if(direntp->d_name[0] == '.' && (s.st_mode & S_IXUSR))//gray bkgrnd w/ greenword
+	{
+		if(outside) cout<<"\033[47m\033[38;5;34m"<<outsidedir<<'/'<<"\033[0;00m";
 		cout<<"\033[47m\033[38;5;34m"<<direntp->d_name<<"\033[0;00m";
+	}
 
 	else if(direntp->d_name[0] == '.')
+	{
+		if(outside) cout<<"\033[47m"<<outsidedir<<'/'<<"\033[0;00m";
 		cout<<"\033[47m"<<direntp->d_name<<"\033[0;00m";
+	}
 
 	else if(s.st_mode & S_IFDIR)//just a directory
+	{
+		if(outside) cout<<"\033[38;5;32m"<<outsidedir<<'/'<<"\033[0;00m";
 		cout<<"\033[38;5;32m"<<direntp->d_name<<"\033[0;00m";
-
+	}
 	else if(s.st_mode & S_IXUSR)//just an executable
+	{
+		if(outside) cout<<"\033[38;5;34m"<<outsidedir<<'/'<<"\033[0;00m";
 		cout<<"\033[38;5;34m"<<direntp->d_name<<"\033[0;00m";
-
+	}
 	else
+	{
+		if(outside) cout<<outsidedir<<'/';
 		cout<<direntp->d_name;	
+	}
 
 	if(s.st_mode & S_IFDIR) cout<< '/';
 	else if(s.st_mode & S_IXUSR) cout<< '*';
@@ -339,7 +415,7 @@ void permissions(struct stat s)
 
 	cout<<" ";
 }
-void printallinfo(struct stat s, int maxdigsize, int maxdignlink, dirent *direntp)
+void printallinfo(struct stat s, int maxdigsize, int maxdignlink, dirent *direntp,int outside, char*outsidedir)
 {
 	struct passwd *pw;
 	if(!(pw = getpwuid(s.st_uid)))
@@ -359,6 +435,6 @@ void printallinfo(struct stat s, int maxdigsize, int maxdignlink, dirent *dirent
 	cout<<gp->gr_name<<' ';
 	cout<<setw(maxdigsize)<<right<<s.st_size<<' ';
 	cout<<buff<<' ';
-	outputcolors(direntp,s);
+	outputcolors(direntp,s,outside,outsidedir);
 	cout<<endl; 
 }
