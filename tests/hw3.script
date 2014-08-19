@@ -1,0 +1,208 @@
+Script started on Mon 18 Aug 2014 07:30:32 PM PDT
+~
+kgall005@well $ cd cs100/rshell/rshell
+~/cs100/rshell/rshell
+kgall005@well $ bin/rshell
+kgall005@well$ names
+harriet
+jack
+misty
+luna
+chris
+Katherine
+kgall005@well$ names | sort
+chris
+harriet
+jack
+Katherine
+luna
+misty
+kgall005@well$ ls -la>ls.txt
+kgall005@well$ cat<ls.txt        <ls.txt
+total 72
+drwx------ 6 kgall005 csmajs 4096 Aug 18 19:31 .
+drwx------ 4 kgall005 csmajs 4096 Aug 10 14:37 ..
+drwx------ 2 kgall005 csmajs 4096 Aug 18 18:58 bin
+-rw------- 1 kgall005 csmajs  102 Aug 16 18:08 fruits.txt
+drwx------ 8 kgall005 csmajs 4096 Aug 18 18:48 .git
+-rw------- 1 kgall005 csmajs    0 Aug 18 19:30 hw3.script
+-rw------- 1 kgall005 csmajs 1494 Aug  4 23:53 LICENSE
+-rw------- 1 kgall005 csmajs  292 Aug 18 17:38 longfile.txt
+-rw------- 1 kgall005 csmajs   57 Aug 18 17:22 lowerupper.txt
+-rw------- 1 kgall005 csmajs    0 Aug 18 19:31 ls.txt
+-rw------- 1 kgall005 csmajs  247 Aug 18 18:40 Makefile
+-rwx------ 1 kgall005 csmajs 8724 Aug 18 12:06 names
+-rw------- 1 kgall005 csmajs  195 Aug 18 12:06 names.cpp
+-rw------- 1 kgall005 csmajs   91 Aug 18 19:31 .nfs000000000016252600000a3f
+-rw------- 1 kgall005 csmajs  184 Aug 18 19:30 .nfs000000000016252b00000a3e
+-rw------- 1 kgall005 csmajs  918 Aug 18 19:31 .nfs00000000005f7fd600000a3d
+-rw------- 1 kgall005 csmajs 3806 Aug 18 19:11 README.md
+drwx------ 2 kgall005 csmajs 4096 Aug 18 19:12 src
+drwx------ 2 kgall005 csmajs 4096 Aug 15 20:15 tests
+kgall005@well$ ls -la
+total 76
+drwx------ 6 kgall005 csmajs 4096 Aug 18 19:31 .
+drwx------ 4 kgall005 csmajs 4096 Aug 10 14:37 ..
+drwx------ 2 kgall005 csmajs 4096 Aug 18 18:58 bin
+-rw------- 1 kgall005 csmajs  102 Aug 16 18:08 fruits.txt
+drwx------ 8 kgall005 csmajs 4096 Aug 18 18:48 .git
+-rw------- 1 kgall005 csmajs    0 Aug 18 19:30 hw3.script
+-rw------- 1 kgall005 csmajs 1494 Aug  4 23:53 LICENSE
+-rw------- 1 kgall005 csmajs  292 Aug 18 17:38 longfile.txt
+-rw------- 1 kgall005 csmajs   57 Aug 18 17:22 lowerupper.txt
+-rw------- 1 kgall005 csmajs 1113 Aug 18 19:31 ls.txt
+-rw------- 1 kgall005 csmajs  247 Aug 18 18:40 Makefile
+-rwx------ 1 kgall005 csmajs 8724 Aug 18 12:06 names
+-rw------- 1 kgall005 csmajs  195 Aug 18 12:06 names.cpp
+-rw------- 1 kgall005 csmajs  108 Aug 18 19:31 .nfs000000000016252600000a3f
+-rw------- 1 kgall005 csmajs  184 Aug 18 19:30 .nfs000000000016252b00000a3e
+-rw------- 1 kgall005 csmajs  918 Aug 18 19:31 .nfs00000000005f7fd600000a3d
+-rw------- 1 kgall005 csmajs 3806 Aug 18 19:11 README.md
+drwx------ 2 kgall005 csmajs 4096 Aug 18 19:12 src
+drwx------ 2 kgall005 csmajs 4096 Aug 15 20:15 tests
+kgall005@well$ echo this is a sentence | cat
+this is a sentence
+kgall005@well$ cat<fruits.txt
+fruits apple banana apricot avocado coconut blackberry melon grape raisin peach pineapple dragonfruit
+kgall005@well$ echo cherry c date fig lemon >> fruits.txt
+kgall005@well$ cat<fruits.txt
+fruits apple banana apricot avocado coconut blackberry melon grape raisin peach pineapple dragonfruit
+cherry date fig lemon
+kgall005@well$ cat longfile.txt
+this is a file
+with lines
+i'm going to make
+it have like 20 lines
+so i can 
+use commands 
+like tail
+and head
+kajsghkdfj
+alskaaaaaaaaaa
+bbbbbbbbb
+ddddddddddd
+cccccccccccc
+eeeeeeeeeee
+fffffffffff
+ggggggggggggggggg
+aaaaaaaaaaaaa
+hhhhhhhhhhh
+iiiiiiiiiiiiiiiiiiii
+jjjjjjjjjjjjjjjjj
+kkkkkkkkkkkkkk
+kgall005@well$ cat <lonfile.txt|tail>                gfile.txt|tail >tailfile.txt
+cat: <: No such file or directory
+kgall005@well$ cat tailfile.txt
+ddddddddddd
+cccccccccccc
+eeeeeeeeeee
+fffffffffff
+ggggggggggggggggg
+aaaaaaaaaaaaa
+hhhhhhhhhhh
+iiiiiiiiiiiiiiiiiiii
+jjjjjjjjjjjjjjjjj
+kkkkkkkkkkkkkk
+kgall005@well$ cat< longfile.txt | head >heaf     heafile    dfl ile.txt
+cat: <: No such file or directory
+kgall005@well$ cat heaf dfile.txt
+this is a file
+with lines
+i'm going to make
+it have like 20 lines
+so i can 
+use commands 
+like tail
+and head
+kajsghkdfj
+alskaaaaaaaaaa
+kgall005@well$ ls -laR | less
+[?1049h[?1h=.:
+total 84
+drwx------ 6 kgall005 csmajs 4096 Aug 18 19:35 .
+drwx------ 4 kgall005 csmajs 4096 Aug 10 14:37 ..
+drwx------ 2 kgall005 csmajs 4096 Aug 18 18:58 bin
+-rw------- 1 kgall005 csmajs  124 Aug 18 19:33 fruits.txt
+drwx------ 8 kgall005 csmajs 4096 Aug 18 18:48 .git
+-rw------- 1 kgall005 csmajs  135 Aug 18 19:35 headfile.txt
+-rw------- 1 kgall005 csmajs    0 Aug 18 19:30 hw3.script
+-rw------- 1 kgall005 csmajs 1494 Aug  4 23:53 LICENSE
+-rw------- 1 kgall005 csmajs  292 Aug 18 17:38 longfile.txt
+-rw------- 1 kgall005 csmajs   57 Aug 18 17:22 lowerupper.txt
+-rw------- 1 kgall005 csmajs 1113 Aug 18 19:31 ls.txt
+-rw------- 1 kgall005 csmajs  247 Aug 18 18:40 Makefile
+-rwx------ 1 kgall005 csmajs 8724 Aug 18 12:06 names
+-rw------- 1 kgall005 csmajs  195 Aug 18 12:06 names.cpp
+-rw------- 1 kgall005 csmajs  173 Aug 18  2014 .nfs000000000016252600000a3f
+-rw------- 1 kgall005 csmajs  250 Aug 18 19:35 .nfs000000000016252b00000a3e
+-rw------- 1 kgall005 csmajs  942 Aug 18  2014 .nfs00000000005f7fd600000a3d
+-rw------- 1 kgall005 csmajs 3806 Aug 18 19:11 README.md
+drwx------ 2 kgall005 csmajs 4096 Aug 18 19:12 src
+-rw------- 1 kgall005 csmajs  147 Aug 18 19:34 tailfile.txt
+drwx------ 2 kgall005 csmajs 4096 Aug 15 20:15 tests
+
+./bin:
+total 64
+drwx------ 2 kgall005 csmajs  4096 Aug 18 18:58 .
+drwx------ 6 kgall005 csmajs  4096 Aug 18 19:35 ..
+-rwx------ 1 kgall005 csmajs 35557 Aug 18 18:58 ls
+-rwx------ 1 kgall005 csmajs 16955 Aug 18 18:58 rshell
+
+./.git:
+total 52
+drwx------  8 kgall005 csmajs 4096 Aug 18 18:48 .
+drwx------  6 kgall005 csmajs 4096 Aug 18 19:35 ..
+drwx------  2 kgall005 csmajs 4096 Aug  4 23:53 branches
+-rw-------  1 kgall005 csmajs   43 Aug 12 12:24 COMMIT_EDITMSG
+-rw-------  1 kgall005 csmajs  272 Aug  6 11:40 config
+-rw-------  1 kgall005 csmajs   73 Aug  4 23:53 description
+-rw-------  1 kgall005 csmajs  105 Aug 11 21:03 FETCH_HEAD
+-rw-------  1 kgall005 csmajs   25 Aug 18 18:48 HEAD
+drwx------  2 kgall005 csmajs 4096 Aug  4 23:53 hooks
+-rw-------  1 kgall005 csmajs  648 Aug 18 18:48 index
+drwx------  2 kgall005 csmajs 4096 Aug  4 23:53 info
+drwx------  3 kgall005 csmajs 4096 Aug  4 23:53 logs
+drwx------ 86 kgall005 csmajs 4096 Aug 12 12:24 objects
+-rw-------  1 kgall005 csmajs   41 Aug 12 12:24 ORIG_HEAD
+-rw-------  1 kgall005 csmajs  107 Aug  4 23:53 packed-refs
+drwx------  5 kgall005 csmajs 4096 Aug  4 23:53 refs
+
+./.git/branches:
+:[K[K[?1l>[?1049lkgall005@well$ names | sort > sorted. names.txt
+kgall005@well$ cat<sortednames.txt
+chris
+harriet
+jack
+Katherine
+luna
+misty
+kgall005@well$ echo this is a new file for hw3        or hw3 cs100 summer 2013 4 >> input.txt
+kgall005@well$ cat<input.txt
+this is a new file for hw3 cs100 summer 2014
+kgall005@well$ cat <input.txt | tee output1 > output2
+cat: <: No such file or directory
+kgall005@well$ cat output1
+this is a new file for hw3 cs100 summer 2014
+kgall005@well$ cat output2
+this is a new file for hw3 cs100 summer 2014
+kgall005@well$ cat /dev/random > random.txt &           andom.txt & 
+kgall005@well$ cat<lowerupper.txt                < lowerupper.txt
+THIS IS UPPERCASE, this is lowercase, katherine GALLAHER
+kgall005@well$ cat < lowerupper.txt | tr A-Z a-z | tee newfile1 | tr a-z A-Z > newfile2 &  &
+cat: <: No such file or directory
+kgall005@well$ cat newfile1
+kgall005@well$ this is uppercase, this is lowercase, katherine gallaher
+
+kgall005@well$ cat newfile2
+kgall005@well$ THIS IS UPPERCASE, THIS IS LOWERCASE, KATHERINE GALLAHER
+
+kgall005@well$ cat random.txt
+kgall005@well$ Wžä´ÈÌôô«ÏÃe“
+kgall005@well$ cat random.txt
+kgall005@well$ Wžä´ÈÌôô«ÏÃe“°Î!¹'1T
+kgall005@well$ exit
+~/cs100/rshell/rshell
+kgall005@well $ exit
+exit
+
+Script done on Mon 18 Aug 2014 07:39:09 PM PDT
