@@ -42,9 +42,10 @@ ls:When doing the ls command on a file and a folder, if the folder is the first 
 
 -ls:Commands with -R do not work exactly as they are supposed to if the program encounters a folder parameter it will immediately output everything in that folder and then go back to outputting everything in the outter folder. However, the output format is correct for -R.
 
--Rshell v2: Certain commands do not work when piping. For example, if you try 'ps aux | grep kgall005' the program does nothing and you have to manually exit with CTRL-C, it does not output anything and just hangs there.
+-Rshell v2: Certain commands do not work when piping. For example, if you try 'ps aux | grep kgall005' the program gets stuck in the child after forking and you have to quit the program.
 
 -Rshell v2: the history command does not work, execvp sets errno stating no such file or directory. 
 
 -Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works.
+
 hw1, hw2 & hw3 for cs100
