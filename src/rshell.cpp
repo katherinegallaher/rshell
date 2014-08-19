@@ -179,7 +179,7 @@ void lookforpipes(char** argv, bool background)
 
 		executepiping(part1,part2,background);
 	}
-	else
+	else//it's a regular command, no pipe
 		execute(argv,background);
 
 	delete[] part1;
@@ -298,32 +298,33 @@ void useDup(char** argv)
 {
 	for(int i=0; argv[i] != '\0';i++)
 	{
+		int fd;
 		if(!strcmp(argv[i], ">"))
 		{
-			int fd = open(argv[i+1],O_CREAT | O_WRONLY | O_TRUNC, 0666 );
-			if(fd == -1)
+			argv[i] = NULL;
+			if(-1== (fd = open(argv[i+1],O_CREAT | O_WRONLY | O_TRUNC, 0666 )))
 				perror("There was an error with open. ");
 			if( -1 == dup2(fd,1))
 				perror("There was an error with dup2. ");
-			argv[i] = NULL;
+			break;
 		}
 		else if(!strcmp(argv[i], ">>"))
 		{
-			int fd = open(argv[i+1],O_CREAT | O_WRONLY | O_APPEND, 0666 );
-			if(fd == -1)
+			argv[i] = NULL;
+			if(-1==(open(argv[i+1],O_CREAT | O_WRONLY | O_APPEND, 0666 )))
 				perror("There was an error with open. ");
 			if(-1 == dup2(fd,1))
 				perror("There was an error with dup2. ");
-			argv[i] = NULL;
+			break;
 		}
 		else if(!strcmp(argv[i], "<"))
 		{
-			int fd = open(argv[i+1],O_RDONLY );
-			if(fd == -1)
+			argv[i] = NULL;
+			if(-1== (fd = open(argv[i+1],O_RDONLY )))
 				perror("There was an error with open. ");
 			if(-1 == dup2(fd,0))
 				perror("There was an error with dup2. ");
-			argv[i] = NULL;
+			break;
 		}
 	}
 }
