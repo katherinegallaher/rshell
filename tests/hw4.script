@@ -1,0 +1,67 @@
+Script started on Sun 24 Aug 2014 08:56:41 PM PDT
+~
+kgall005@well $ cd cs100/rshell/rshell
+~/cs100/rshell/rshell
+kgall005@well $ bin/rshell
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ls
+bin  fruits.txt  hw4.script  LICENSE  Makefile	README.md  src	tests
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ cat /dev/random > random.txt #i will quit this proces  s with ctrl-c
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ls
+bin  fruits.txt  hw4.script  LICENSE  Makefile	random.txt  README.md  src  tests
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ cat random.txt
+¿Žús*V½`cÝâÙª žçÌz©iA/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ #now i will test cd
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ls  cd src
+/home/csmajs/kgall005/cs100/rshell/rshell/src
+kgall005@well$ ls
+cp.cpp	ls.cpp	rshell.cpp  Timer.h
+/home/csmajs/kgall005/cs100/rshell/rshell/src
+kgall005@well$ cd
+/home/csmajs/kgall005
+kgall005@well$ ls
+addons.sqlite		cs61			 localstore.rdf       search.json
+blocklist.xml		Desktop			 lock		      secmod.db
+bookmarkbackups		Documents		 marionette.log       sessionstore.bak
+Cache			Downloads		 mimeTypes.rdf	      sessionstore.js
+_CACHE_CLEAN_		downloads.sqlite	 mozilla-media-cache  signons.sqlite
+cert8.db		extensions.ini		 Music		      startupCache
+cert_override.txt	extensions.sqlite	 permissions.sqlite   Templates
+chromeappsstore.sqlite	Firefox_wallpaper.png	 Pictures	      thumbnails
+compatibility.ini	formhistory.sqlite	 places.sqlite	      times.json
+content-prefs.sqlite	#geany#			 places.sqlite-shm    ucr-cs100
+cookies.sqlite		healthreport		 places.sqlite-wal    urlclassifierkey3.txt
+cookies.sqlite-shm	healthreport.sqlite	 pluginreg.dat	      Videos
+cookies.sqlite-wal	healthreport.sqlite-shm  prefs.js	      webapps
+cs100			indexedDB		 Public		      webappsstore.sqlite
+cs120b			key3.db			 rshell		      webappsstore.sqlite-shm
+cs14			lab2			 safebrowsing	      webappsstore.sqlite-wal
+/home/csmajs/kgall005
+kgall005@well$ cd cs14
+/home/csmajs/kgall005/cs14
+kgall005@well$ ls
+Assn1  assn2  lab1  lab2  quiz	trash
+/home/csmajs/kgall005/cs14
+kgall005@well$ cd /home/csmajs/kgall005/cs100/rshell/rshell
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ls
+bin  fruits.txt  hw4.script  LICENSE  Makefile	random.txt  README.md  src  tests
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ag;kdjg;aksd            #now i'll test what happens if you put in a wrong path
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ alskdjglkw
+problem with execv. : No such file or directory
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ aaa   wrong path
+problem with execv. : No such file or directory
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ exit
+~/cs100/rshell/rshell
+kgall005@well $ clear[K[K[K[K[Kexit
+exit
+
+Script done on Sun 24 Aug 2014 09:00:01 PM PDT

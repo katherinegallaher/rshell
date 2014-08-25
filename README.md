@@ -48,4 +48,6 @@ ls:When doing the ls command on a file and a folder, if the folder is the first 
 
 -Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works.
 
-hw1, hw2 & hw3 for cs100
+Rshell v3: CTRL-C works but when you try it on "cat /dev/random" it quits the process but the weird characters take over
+
+hw1, hw2, hw3 & hw4 for cs100
