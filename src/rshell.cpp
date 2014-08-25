@@ -104,11 +104,15 @@ int main()
 			if(str.size() == 2)//you want to go to the home dir
 			{
 				char *home = getenv("HOME");
-				chdir(home);
+				if(-1 == chdir(home))
+					perror("error in chdir. ");
+
 			}
 			else	
-				chdir(argv[1]);
-
+			{
+				if(-1 == chdir(argv[1]))
+					perror("error in chdir. ");
+			}
 			continue;
 		}
 
@@ -271,7 +275,8 @@ void executepiping(char** part1, char** part2, bool background, char **parsedpat
 	lookforpipes(part2,background, parsedpath);//in order to chain multiple pipes you have to check again if you have a pipe in the second half
 
 	//restore stdin
-	dup2(savestdin,0);
+	if(-1 == dup2(savestdin,0))
+		perror("There is an error with dup2. ");
 }
 	
 int parse(char userinput[], char **argv, bool &emptyinput)
