@@ -46,8 +46,10 @@ ls:When doing the ls command on a file and a folder, if the folder is the first 
 
 -Rshell v2: the history command does not work, execvp sets errno stating no such file or directory. 
 
--Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works.
+-Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory but the command still works.
 
-Rshell v3: CTRL-C works but when you try it on "cat /dev/random" it quits the process but the weird characters take over
+-Rshell v3: CTRL-C works but when you try it on "cat /dev/random" it quits the process but the weird characters take over
+
+-Rshell v3: When you are not running processes that take over your terminal and try CTRL-C it will quit the rshell program.
 
 hw1, hw2, hw3 & hw4 for cs100
