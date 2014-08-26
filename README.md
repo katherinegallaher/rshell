@@ -46,7 +46,7 @@ ls:When doing the ls command on a file and a folder, if the folder is the first 
 
 -Rshell v2: the history command does not work, execvp sets errno stating no such file or directory. 
 
--Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works.
+-Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works. (FIXED IN HW4!)
 
 -Rshell v3: CTRL-C works but when you try it on "cat /dev/random" it quits the process but the weird characters take over
 
