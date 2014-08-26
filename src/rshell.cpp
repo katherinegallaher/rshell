@@ -25,7 +25,7 @@ void checktokens(string&);//if there was no spaces between a token & a word it's
 void sig_handlerc(int signum);
 void sig_handlerz(int signum);//doesn't wokr yet
 
-pid_t handlerpid;
+pid_t handlerpid=0;
 
 int main()
 {
@@ -106,7 +106,6 @@ int main()
 				char *home = getenv("HOME");
 				if(-1 == chdir(home))
 					perror("error in chdir. ");
-
 			}
 			else	
 			{
@@ -245,6 +244,9 @@ void executepiping(char** part1, char** part2, bool background, char **parsedpat
     }
     else if(pid == 0)
     {
+		//check for io redirection
+		useDup(part1);
+
 		//write to pipe 
 		if(-1 == dup2(fd[1],1))
 			perror("There was an error with dup2. ");
@@ -408,6 +410,12 @@ void execute(char **argv, bool backgroundproc, char **parsedpath)
 void sig_handlerc(int signum)//handles ctrl-c
 {
 	signal(SIGINT,SIG_IGN);
+	//cerr<<"handlerpid: "<<handlerpid<<endl;
+	//if(handlerpid)
+	//{
+	//	cerr<<"trying to ctrlc\n";
+	//	kill(handlerpid,SIGKILL);
+	//}
 }
 int parsepath(char *path, char **parsed_path)
 {

@@ -1,22 +1,26 @@
-Script started on Sun 24 Aug 2014 08:56:41 PM PDT
+Script started on Mon 25 Aug 2014 06:03:18 PM PDT
 ~
-kgall005@well $ cd cs100/rshell/rshell
+kgall005@well $ cd cs100/rshh[Kell/rseh[Kh[K[Khell
 ~/cs100/rshell/rshell
 kgall005@well $ bin/rshell
 /home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ ls
-bin  fruits.txt  hw4.script  LICENSE  Makefile	README.md  src	tests
+kgall005@well$ #below i'        below i will test    test ctrl-c
 /home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ cat /dev/random > random.txt #i will quit this proces  s with ctrl-c
-/home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ ls
-bin  fruits.txt  hw4.script  LICENSE  Makefile	random.txt  README.md  src  tests
+kgall005@well$ cat /dev/random > random.txt
 /home/csmajs/kgall005/cs100/rshell/rshell
 kgall005@well$ cat random.txt
-¿Žús*V½`cÝâÙª žçÌz©iA/home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ #now i will test cd
+ýnÍ®OqtæC=Â*–3ZJñPË#3a]çÉÇxøìÄ‰e/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ tail
 /home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ ls  cd src
+kgall005@well$ ./test.out
+I expect user input: /home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ #@ the above program                    ls
+a.out  hw4.script  Makefile   random.txt  src		 test.out
+bin    LICENSE	   names.cpp  README.md   testctrlc.cpp  tests
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ #now i will test cd below:       :
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ cd src
 /home/csmajs/kgall005/cs100/rshell/rshell/src
 kgall005@well$ ls
 cp.cpp	ls.cpp	rshell.cpp  Timer.h
@@ -24,44 +28,51 @@ cp.cpp	ls.cpp	rshell.cpp  Timer.h
 kgall005@well$ cd
 /home/csmajs/kgall005
 kgall005@well$ ls
-addons.sqlite		cs61			 localstore.rdf       search.json
-blocklist.xml		Desktop			 lock		      secmod.db
-bookmarkbackups		Documents		 marionette.log       sessionstore.bak
-Cache			Downloads		 mimeTypes.rdf	      sessionstore.js
-_CACHE_CLEAN_		downloads.sqlite	 mozilla-media-cache  signons.sqlite
-cert8.db		extensions.ini		 Music		      startupCache
-cert_override.txt	extensions.sqlite	 permissions.sqlite   Templates
-chromeappsstore.sqlite	Firefox_wallpaper.png	 Pictures	      thumbnails
-compatibility.ini	formhistory.sqlite	 places.sqlite	      times.json
-content-prefs.sqlite	#geany#			 places.sqlite-shm    ucr-cs100
-cookies.sqlite		healthreport		 places.sqlite-wal    urlclassifierkey3.txt
-cookies.sqlite-shm	healthreport.sqlite	 pluginreg.dat	      Videos
-cookies.sqlite-wal	healthreport.sqlite-shm  prefs.js	      webapps
-cs100			indexedDB		 Public		      webappsstore.sqlite
-cs120b			key3.db			 rshell		      webappsstore.sqlite-shm
-cs14			lab2			 safebrowsing	      webappsstore.sqlite-wal
+addons.sqlite		cs61			 localstore.rdf       sessionstore.bak
+blocklist.xml		Desktop			 marionette.log       sessionstore.js
+bookmarkbackups		Documents		 mimeTypes.rdf	      signons.sqlite
+Cache			Downloads		 mozilla-media-cache  startupCache
+_CACHE_CLEAN_		downloads.sqlite	 Music		      Templates
+cert8.db		extensions.ini		 permissions.sqlite   thumbnails
+cert_override.txt	extensions.sqlite	 Pictures	      times.json
+chromeappsstore.sqlite	Firefox_wallpaper.png	 places.sqlite	      ucr-cs100
+compatibility.ini	formhistory.sqlite	 places.sqlite-shm    urlclassifierkey3.txt
+content-prefs.sqlite	#geany#			 places.sqlite-wal    Videos
+cookies.sqlite		healthreport		 pluginreg.dat	      webapps
+cookies.sqlite-shm	healthreport.sqlite	 prefs.js	      webappsstore.sqlite
+cookies.sqlite-wal	healthreport.sqlite-shm  Public		      webappsstore.sqlite-shm
+cs100			indexedDB		 safebrowsing	      webappsstore.sqlite-wal
+cs120b			key3.db			 search.json
+cs14			lab2			 secmod.db
 /home/csmajs/kgall005
 kgall005@well$ cd cs14
 /home/csmajs/kgall005/cs14
 kgall005@well$ ls
 Assn1  assn2  lab1  lab2  quiz	trash
 /home/csmajs/kgall005/cs14
-kgall005@well$ cd /home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ cd /home/csj majs/kgall005/cs199/   00/rshell/rshell
 /home/csmajs/kgall005/cs100/rshell/rshell
 kgall005@well$ ls
-bin  fruits.txt  hw4.script  LICENSE  Makefile	random.txt  README.md  src  tests
+a.out  hw4.script  Makefile   random.txt  src		 test.out
+bin    LICENSE	   names.cpp  README.md   testctrlc.cpp  tests
 /home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ ag;kdjg;aksd            #now i'll test what happens if you put in a wrong path
+kgall005@well$ #now i'll test path for w     w      the path with weird n inputs or execua tables                                with wrong inputs or execua tables in the current fold                                  and executables in the current folder
 /home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ alskdjglkw
+kgall005@well$ sdkfaslk wrong path
 problem with execv. : No such file or directory
 /home/csmajs/kgall005/cs100/rshell/rshell
-kgall005@well$ aaa   wrong path
-problem with execv. : No such file or directory
+kgall005@well$ /bin/ls
+LICENSE  README.md  Makefile  [38;5;34ma.out[0;00m*  [38;5;32mtests[0;00m/  [38;5;32msrc[0;00m/  names.cpp  [38;5;32mbin[0;00m/  hw4.script  random.txt  [38;5;34mtest.out[0;00m*  testctrlc.cpp  
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ./a.out
+This is a list of names: Jack, Barnaby, Luna, Misty, Kevin
+/home/csmajs/kgall005/cs100/rshell/rshell
+kgall005@well$ ./test.out
+I expect user input: yo
 /home/csmajs/kgall005/cs100/rshell/rshell
 kgall005@well$ exit
 ~/cs100/rshell/rshell
-kgall005@well $ clear[K[K[K[K[Kexit
+kgall005@well $ exit
 exit
 
-Script done on Sun 24 Aug 2014 09:00:01 PM PDT
+Script done on Mon 25 Aug 2014 06:10:42 PM PDT

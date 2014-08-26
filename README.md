@@ -40,13 +40,13 @@ ls:When doing the ls command on a file and a folder, if the folder is the first 
 
 -ls:If you enter a folder and end the input with '/' it will not recognize the folder, however it will recognize it otherwise.
 
--ls:Commands with -R do not work exactly as they are supposed to if the program encounters a folder parameter it will immediately output everything in that folder and then go back to outputting everything in the outter folder. However, the output format is correct for -R.
+-ls: Commands with -R do not work exactly as they are supposed to if the program encounters a folder parameter it will immediately output everything in that folder and then go back to outputting everything in the outter folder. However, the output format is correct for -R.
 
 -Rshell v2: Certain commands do not work when piping. For example, if you try 'ps aux | grep kgall005' the program gets stuck in the child after forking and you have to quit the program.
 
 -Rshell v2: the history command does not work, execvp sets errno stating no such file or directory. 
 
--Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works.
+-Rshell v2: Sometimes when doing input redirection (<) with cat an error displays that says "cat: <: No such file or directory" but the command still works. (FIXED IN VERSION 3!)
 
 Rshell v3: CTRL-C works but when you try it on "cat /dev/random" it quits the process but the weird characters take over
 
